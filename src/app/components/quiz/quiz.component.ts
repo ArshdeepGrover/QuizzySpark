@@ -11,7 +11,8 @@ export class QuizComponent implements OnInit {
   questions: QuizQuestion[] = [];
   isLoading = false;
   selectedDifficulty: string = 'easy';
-  selectedCategory: string = 'linux';
+  selectedCategory: string = 'general';
+  selectedApiSource: 'opentdb' | 'quizapi' = 'opentdb';
   noQuestionsFound: boolean = false;
 
   constructor(private quizServe: QuizService) {}
@@ -21,7 +22,12 @@ export class QuizComponent implements OnInit {
     this.isLoading = true;
     this.noQuestionsFound = false;
     this.quizServe
-      .getQuestions(10, this.selectedDifficulty, this.selectedCategory)
+      .getQuestions(
+        10,
+        this.selectedDifficulty,
+        this.selectedCategory,
+        this.selectedApiSource
+      )
       .subscribe(
         (data: QuizQuestion[]) => {
           this.questions = data;

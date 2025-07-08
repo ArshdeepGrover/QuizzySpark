@@ -3,6 +3,7 @@ export interface QuizQuestion {
   question: string;
   description: string | null;
   answers: {
+    [key: string]: string | null;
     answer_a: string;
     answer_b: string;
     answer_c: string;
