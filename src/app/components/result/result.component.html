@@ -1,20 +1,75 @@
-<div *ngIf="score >= 7; else lessThanSeven" class="celebration-container">
-  <h1 class="glow">🎉 Congratulations! 🎉</h1>
-  <p class="score-text">Your score is {{ score }}</p>
-  <p>You passed the quiz. Great job!</p>
-  <a [routerLink]="['']">
-    <button class="retry-button">Start again</button>
-  </a>
-  <canvas id="confetti"></canvas>
-</div>
+<div class="result-container">
+  <!-- Success Result -->
+  <div *ngIf="score >= 7" class="success">
+    <!-- Celebration Header -->
+    <div class="celebration-header">
+      <div class="celebration-emoji">🎉</div>
+      <h1 class="celebration-title">Congratulations!</h1>
+      <p class="celebration-message">You passed the quiz with flying colors!</p>
+    </div>
 
-<ng-template #lessThanSeven>
-  <div class="sad-container">
-    <h1>😞 Try Again!</h1>
-    <p>Your score is {{ score }}</p>
-    <p>You did not pass the quiz. Better luck next time!</p>
-    <a [routerLink]="['']">
-      <button class="retry-button">Retry</button>
-    </a>
+    <!-- Score Display -->
+    <div class="score-box success-score">
+      <div class="score-value">{{ score }}</div>
+      <div class="score-out-of">out of 10</div>
+      <div class="score-percent">{{ ((score / 10) * 100).toFixed(0) }}%</div>
+    </div>
+
+    <!-- Performance Message -->
+    <div class="performance-message success-message">
+      <p>
+        Excellent work! You've demonstrated great knowledge in this subject.
+      </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <a [routerLink]="['/quiz']" class="action-link">
+        <button class="action-btn try-another">Try Another Quiz</button>
+      </a>
+      <a [routerLink]="['/']" class="action-link">
+        <button class="action-btn back-home">Back to Home</button>
+      </a>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti" class="confetti-canvas"></canvas>
   </div>
-</ng-template>
+
+  <!-- Failure Result -->
+  <div *ngIf="score < 7" class="failure">
+    <!-- Encouragement Header -->
+    <div class="encouragement-header">
+      <div class="encouragement-emoji">💪</div>
+      <h1 class="encouragement-title">Keep Going!</h1>
+      <p class="encouragement-message">
+        Don't give up, practice makes perfect!
+      </p>
+    </div>
+
+    <!-- Score Display -->
+    <div class="score-box failure-score">
+      <div class="score-value">{{ score }}</div>
+      <div class="score-out-of">out of 10</div>
+      <div class="score-percent">{{ ((score / 10) * 100).toFixed(0) }}%</div>
+    </div>
+
+    <!-- Encouragement Message -->
+    <div class="performance-message failure-message">
+      <p>
+        You're close! Review the material and try again. Every attempt makes you
+        better!
+      </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <a [routerLink]="['/quiz']" class="action-link">
+        <button class="action-btn try-again">Try Again</button>
+      </a>
+      <a [routerLink]="['/']" class="action-link">
+        <button class="action-btn back-home">Back to Home</button>
+      </a>
+    </div>
+  </div>
+</div>

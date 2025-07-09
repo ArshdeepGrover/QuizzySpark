@@ -1,17 +1,30 @@
 <div *ngIf="!quizFinish">
-  <div class="w-full left-0 bg-gray-200 dark:bg-gray-700 fixed top-0 h-2">
+  <!-- <div class="w-full left-0 bg-gray-200 dark:bg-gray-700 fixed top-16 h-2">
     <div
       class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none h-2"
       [ngStyle]="{ width: currentQuestion + 1 + '0%' }"
     ></div>
+  </div> -->
+  <div class="quiz-container">
+    <!-- Left: Main Question Card -->
+    <div class="questions-card">
+      <div *ngIf="currentQuestion < questions.length">
+        <app-question-card
+          [question]="questions[currentQuestion]"
+          [questionNumber]="currentQuestion + 1"
+          [totalQuestion]="questions.length"
+          (showNextQuestion)="checkAndNextQuestion($event)"
+        ></app-question-card>
+      </div>
+    </div>
+
+    <!-- Right: Score/Progress Card -->
+    <div class="progress-container-card">
+      <div class="progress-card">
+        <span class="text">Current Score</span>
+        <span class="score">{{ score }}</span>
+      </div>
+      <!-- Add more widgets here if needed -->
+    </div>
   </div>
-  <div *ngIf="currentQuestion < questions.length">
-    <app-question-card
-      [question]="questions[currentQuestion]"
-      [questionNumber]="currentQuestion + 1"
-      [totalQuestion]="questions.length"
-      (showNextQuestion)="checkAndNextQuestion($event)"
-    ></app-question-card>
-  </div>
-  <h1 class="text-xl">Your Score For this Quiz was {{ score }}</h1>
 </div>

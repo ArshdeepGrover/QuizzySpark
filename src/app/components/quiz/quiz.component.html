@@ -1,47 +1,102 @@
-<app-loader *ngIf="isLoading; else showButtons"></app-loader>
+<div class="quiz-container">
+  <!-- Loading State -->
+  <app-loader *ngIf="isLoading"></app-loader>
 
-<ng-template #showButtons>
-  <div class="grid gap-8 grid-cols-2" *ngIf="questions.length === 0">
-    <div class="dropdown">
-      <label for="category">Category</label>
-      <select id="category" [(ngModel)]="selectedCategory">
-        <option value="linux">Linux</option>
-        <option value="devOps">DevOps</option>
-        <option value="networking">Networking</option>
-        <option value="cloud">Cloud</option>
-        <option value="docker">Docker</option>
-      </select>
+  <!-- Quiz Setup -->
+  <div
+    *ngIf="!isLoading && questions.length === 0"
+    class="quiz-setup-container"
+  >
+    <!-- Header -->
+    <div class="header">
+      <h1>Quiz Setup</h1>
+      <p>Choose your preferences and start the quiz!</p>
     </div>
 
-    <div class="dropdown">
-      <label for="difficulty">Difficulty</label>
-      <select id="difficulty" [(ngModel)]="selectedDifficulty">
-        <option selected value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
+    <!-- Setup Form -->
+    <div class="setup-form">
+      <!-- API Source Selection -->
+      <!-- <div class="space-y-2">
+        <label
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          >Question Source</label
+        >
+        <div class="flex gap-4">
+          <label class="flex items-center">
+            <input
+              type="radio"
+              [(ngModel)]="selectedApiSource"
+              value="opentdb"
+              class="mr-2"
+            />
+            <span class="text-sm">OpenTDB (Free)</span>
+          </label>
+          <label class="flex items-center">
+            <input
+              type="radio"
+              [(ngModel)]="selectedApiSource"
+              value="quizapi"
+              class="mr-2"
+            />
+            <span class="text-sm">QuizAPI (Limited)</span>
+          </label>
+        </div>
+      </div> -->
+
+      <!-- Category Selection -->
+      <div class="form-container">
+        <div class="category-container">
+          <label for="category">Category</label>
+          <select id="category" [(ngModel)]="selectedCategory">
+            <option value="general">General Knowledge</option>
+            <option value="science">Science & Nature</option>
+            <option value="computers">Computers</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="sports">Sports</option>
+            <option value="geography">Geography</option>
+            <option value="history">History</option>
+            <option value="politics">Politics</option>
+            <option value="art">Art</option>
+            <option value="celebrities">Celebrities</option>
+            <option value="animals">Animals</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="comics">Comics</option>
+            <option value="gadgets">Gadgets</option>
+            <option value="anime">Anime & Manga</option>
+            <option value="cartoons">Cartoons & Animations</option>
+          </select>
+        </div>
+
+        <div class="difficulty-container">
+          <label for="difficulty">Difficulty</label>
+          <select id="difficulty" [(ngModel)]="selectedDifficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="noQuestionsFound" class="error-message">
+        <p>
+          Oops! No questions found for the selected criteria. Please try a
+          different category or difficulty.
+        </p>
+      </div>
+
+      <!-- Start Button -->
+      <div class="button-container">
+        <button (click)="getQuestions()" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Start Quiz</span>
+          <span *ngIf="isLoading">Loading...</span>
+        </button>
+      </div>
     </div>
   </div>
 
-  <div *ngIf="noQuestionsFound" class="no-question-error">
-    oops! Seems Technical Issue! Please choose some another category
+  <!-- Quiz Questions -->
+  <div *ngIf="questions.length > 0 && !noQuestionsFound">
+    <app-question [questions]="questions"></app-question>
   </div>
-
-  <div class="start-quiz-button" *ngIf="questions.length === 0">
-    <button
-      class="start-quiz group"
-      (click)="getQuestions()"
-      [ngClass]="{ 'cursor-not-allowed': isLoading }"
-      [disabled]="isLoading"
-    >
-      <span
-        class="duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
-      >
-        Start Quiz
-      </span>
-    </button>
-  </div>
-</ng-template>
-<div *ngIf="questions.length > 0 && !noQuestionsFound">
-  <app-question [questions]="questions"></app-question>
 </div>
