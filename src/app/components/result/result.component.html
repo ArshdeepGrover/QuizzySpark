@@ -1,107 +1,74 @@
-<div class="max-w-2xl mx-auto p-6">
+<div class="result-container">
   <!-- Success Result -->
-  <div *ngIf="score >= 7" class="text-center space-y-6">
+  <div *ngIf="score >= 7" class="success">
     <!-- Celebration Header -->
-    <div class="space-y-4">
-      <div class="text-6xl">🎉</div>
-      <h1 class="text-4xl font-bold text-green-600">Congratulations!</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300">
-        You passed the quiz with flying colors!
-      </p>
+    <div class="celebration-header">
+      <div class="celebration-emoji">🎉</div>
+      <h1 class="celebration-title">Congratulations!</h1>
+      <p class="celebration-message">You passed the quiz with flying colors!</p>
     </div>
 
     <!-- Score Display -->
-    <div
-      class="bg-gradient-to-r from-green-400 to-blue-500 rounded-lg p-8 text-white"
-    >
-      <div class="text-6xl font-bold mb-2">{{ score }}</div>
-      <div class="text-xl">out of 10</div>
-      <div class="text-sm opacity-90 mt-2">
-        {{ ((score / 10) * 100).toFixed(0) }}%
-      </div>
+    <div class="score-box success-score">
+      <div class="score-value">{{ score }}</div>
+      <div class="score-out-of">out of 10</div>
+      <div class="score-percent">{{ ((score / 10) * 100).toFixed(0) }}%</div>
     </div>
 
     <!-- Performance Message -->
-    <div
-      class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4"
-    >
-      <p class="text-green-800 dark:text-green-200 font-medium">
+    <div class="performance-message success-message">
+      <p>
         Excellent work! You've demonstrated great knowledge in this subject.
       </p>
     </div>
 
     <!-- Action Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a [routerLink]="['/quiz']" class="inline-block">
-        <button
-          class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform"
-        >
-          Try Another Quiz
-        </button>
+    <div class="action-buttons">
+      <a [routerLink]="['/quiz']" class="action-link">
+        <button class="action-btn try-another">Try Another Quiz</button>
       </a>
-      <a [routerLink]="['/']" class="inline-block">
-        <button
-          class="px-8 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform"
-        >
-          Back to Home
-        </button>
+      <a [routerLink]="['/']" class="action-link">
+        <button class="action-btn back-home">Back to Home</button>
       </a>
     </div>
 
     <!-- Confetti Canvas -->
-    <canvas
-      id="confetti"
-      class="fixed inset-0 pointer-events-none z-50"
-    ></canvas>
+    <canvas id="confetti" class="confetti-canvas"></canvas>
   </div>
 
   <!-- Failure Result -->
-  <div *ngIf="score < 7" class="text-center space-y-6">
+  <div *ngIf="score < 7" class="failure">
     <!-- Encouragement Header -->
-    <div class="space-y-4">
-      <div class="text-6xl">💪</div>
-      <h1 class="text-4xl font-bold text-orange-600">Keep Going!</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300">
+    <div class="encouragement-header">
+      <div class="encouragement-emoji">💪</div>
+      <h1 class="encouragement-title">Keep Going!</h1>
+      <p class="encouragement-message">
         Don't give up, practice makes perfect!
       </p>
     </div>
 
     <!-- Score Display -->
-    <div
-      class="bg-gradient-to-r from-orange-400 to-red-500 rounded-lg p-8 text-white"
-    >
-      <div class="text-6xl font-bold mb-2">{{ score }}</div>
-      <div class="text-xl">out of 10</div>
-      <div class="text-sm opacity-90 mt-2">
-        {{ ((score / 10) * 100).toFixed(0) }}%
-      </div>
+    <div class="score-box failure-score">
+      <div class="score-value">{{ score }}</div>
+      <div class="score-out-of">out of 10</div>
+      <div class="score-percent">{{ ((score / 10) * 100).toFixed(0) }}%</div>
     </div>
 
     <!-- Encouragement Message -->
-    <div
-      class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4"
-    >
-      <p class="text-orange-800 dark:text-orange-200 font-medium">
+    <div class="performance-message failure-message">
+      <p>
         You're close! Review the material and try again. Every attempt makes you
         better!
       </p>
     </div>
 
     <!-- Action Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a [routerLink]="['/quiz']" class="inline-block">
-        <button
-          class="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform"
-        >
-          Try Again
-        </button>
+    <div class="action-buttons">
+      <a [routerLink]="['/quiz']" class="action-link">
+        <button class="action-btn try-again">Try Again</button>
       </a>
-      <a [routerLink]="['/']" class="inline-block">
-        <button
-          class="px-8 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform"
-        >
-          Back to Home
-        </button>
+      <a [routerLink]="['/']" class="action-link">
+        <button class="action-btn back-home">Back to Home</button>
       </a>
     </div>
   </div>

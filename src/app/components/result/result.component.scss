@@ -1,60 +1,83 @@
-.celebration-container {
-  text-align: center;
-  animation: fadeIn 1s ease-in-out;
-  background: #fff5e6;
-  padding: 20px;
-  border-radius: 12px;
+.result-container {
+  @apply max-w-2xl mx-auto p-6;
 }
 
-.sad-container {
-  text-align: center;
-  animation: shake 0.6s ease-in-out;
-  background: #ffe6e6;
-  padding: 20px;
-  border-radius: 12px;
+.success,
+.failure {
+  @apply text-center flex flex-col gap-6;
 }
 
-.score-text {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.celebration-header,
+.encouragement-header {
+  @apply flex flex-col gap-4;
 }
 
-.retry-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #ff4081;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+.celebration-emoji,
+.encouragement-emoji {
+  @apply text-6xl;
 }
 
-.retry-button:hover {
-  background-color: #f50057;
+.celebration-title {
+  @apply text-4xl font-bold text-green-600;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.celebration-message,
+.encouragement-message {
+  @apply text-lg text-gray-600 dark:text-gray-300;
 }
 
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25%,
-  75% {
-    transform: translateX(-10px);
-  }
-  50% {
-    transform: translateX(10px);
-  }
+.encouragement-title {
+  @apply text-4xl font-bold text-orange-600;
+}
+
+.score-box {
+  @apply rounded-lg p-8 text-white flex flex-col items-center;
+}
+.success-score {
+  @apply bg-gradient-to-r from-green-400 to-blue-500;
+}
+.failure-score {
+  @apply bg-gradient-to-r from-orange-400 to-red-500;
+}
+.score-value {
+  @apply text-6xl font-bold mb-2;
+}
+.score-out-of {
+  @apply text-xl;
+}
+.score-percent {
+  @apply text-sm opacity-90 mt-2;
+}
+.performance-message {
+  @apply rounded-lg p-4 border font-medium;
+}
+.success-message {
+  @apply bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200;
+}
+.failure-message {
+  @apply bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800 text-orange-800 dark:text-orange-200;
+}
+.action-buttons {
+  @apply flex flex-col sm:flex-row gap-4 justify-center;
+}
+.action-link {
+  @apply inline-block;
+}
+.action-btn {
+  @apply px-8 py-3 font-semibold rounded-lg shadow-lg transition-transform text-white;
+}
+.action-btn:hover {
+  @apply scale-105;
+}
+.try-another {
+  @apply bg-gradient-to-r from-purple-500 to-blue-500;
+}
+.try-again {
+  @apply bg-gradient-to-r from-orange-500 to-red-500;
+}
+.back-home {
+  @apply bg-gray-500;
+}
+.confetti-canvas {
+  @apply fixed inset-0 pointer-events-none z-50;
 }
