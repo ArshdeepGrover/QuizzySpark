@@ -1,27 +1,105 @@
-# QuizApp
+# ✨ QuizzySpark
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+> **Ignite your curiosity. Challenge your mind. Level up your knowledge!**
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ▶️ Play Live
 
-## Code scaffolding
+Try QuizzySpark instantly: [https://quizzy-spark.vercel.app](https://quizzy-spark.vercel.app)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🏷️ Keywords
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`quiz` `angular` `tailwindcss` `trivia` `game` `education` `responsive` `typescript` `fun` `interactive`
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Welcome to **QuizzySpark** – the ultimate playground for quiz lovers! Whether you're a trivia titan or just looking for some fun, QuizzySpark brings you a vibrant, interactive quiz experience with instant feedback, confetti celebrations, and a modern, mobile-friendly design.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🌟 Features
 
-## Further help
+- 🎯 **Instant Feedback:** Know right away if you nailed it or need another shot.
+- 🎉 **Animated Results:** Celebrate your wins with confetti and encouragement.
+- 📱 **Responsive Design:** Play on any device, anywhere.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## 🚦 How to Play
+
+1. **Start the Quiz:**
+   - Hit "Start Quiz" on the home page.
+2. **Answer Questions:**
+   - Pick your answer for each question. No pressure, just fun!
+   - Click "Next" to move forward.
+3. **See Your Results:**
+   - Get your score, a fun message, and a chance to celebrate (or try again!).
+4. **Play Again:**
+   - Try another quiz or replay to beat your high score!
+
+---
+
+## 🛠️ Quick Start
+
+1. **Clone & Install:**
+
+   ```bash
+   git clone https://github.com/ArshdeepGrover/quiz-app
+   cd quiz-app
+   npm install
+   ```
+
+2. **Run Locally:**
+
+   ```bash
+   ng serve
+   ```
+
+   Open [http://localhost:4200](http://localhost:4200) and start playing!
+
+---
+
+## 🧑‍💻 Tech Stack
+
+- [Angular](https://angular.io/) 16+
+- [Tailwind CSS](https://tailwindcss.com/)
+- TypeScript
+
+---
+
+## 📂 Project Structure
+
+```
+quiz-app/
+  src/app/
+    components/   # UI components (quiz, question, result, etc.)
+    models/       # Data models
+    services/     # Quiz logic & data
+  ...
+```
+
+---
+
+## 🤝 Contributing
+
+We love new ideas! To contribute:
+
+1. Fork this repo
+2. Create a branch: `git checkout -b feat/your-feature`
+3. Commit & push: `git commit -m 'Add cool feature'`
+4. Open a Pull Request
+
+---
+
+## 📜 License
+
+MIT — use it, remix it, have fun!
+
+---
+
+## 💬 Questions or Feedback?
+
+Open an issue or reach out to the maintainer. Happy quizzing! 🚀
