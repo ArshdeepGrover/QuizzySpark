@@ -103,3 +103,7 @@ MIT — use it, remix it, have fun!
 ## 💬 Questions or Feedback?
 
 Open an issue or reach out to the maintainer. Happy quizzing! 🚀
+
+---
+
+Developed & maintained with ❤️ by [Arshdeep Singh](https://www.arshdeepsingh.info?utm_source=quiz-app&utm_medium=footer&utm_campaign=developer_credit&utm_content=footer_link)
